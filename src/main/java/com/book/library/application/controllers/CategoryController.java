@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -103,7 +104,12 @@ public class CategoryController {
     @DeleteMapping(value = "/delete/category/{id}")
     public ResponseEntity<Object> deleteCategory(@PathVariable(value = "id") int id) {
          String response = categoryService.deleteCategory(id);
-        return new ResponseEntity<Object>(response, HttpStatus.OK);
+        StandardAPIResponse standardAPIResponse = new StandardAPIResponse(
+                "Category got deleted",
+                HttpStatus.OK,
+                new Date()
+        );
+        return new ResponseEntity<>(standardAPIResponse, HttpStatus.OK);
     }
 
    /* @PutMapping(value = "/update/category/{id}/addBooksToCategory")

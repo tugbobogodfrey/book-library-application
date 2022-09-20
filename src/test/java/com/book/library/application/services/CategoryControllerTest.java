@@ -66,6 +66,7 @@ public class CategoryControllerTest {
 
 
     @Test
+    @DisplayName("Should check if the endpoint for deleting category works fine")
     void deleteCategory() throws Exception {
 
         Category category = Category.builder()
@@ -85,7 +86,7 @@ public class CategoryControllerTest {
 
 
     @Test
-    @DisplayName("This should check if it is a valid category")
+    @DisplayName("This should check if this endpoint adds a valid category")
     void addCategory() throws Exception {
         Category category = new Category("Age of Machines", "Technology");
         CategoryResponse categoryResponse = new CategoryResponse("Age of Machines", "Technology");
@@ -104,8 +105,7 @@ public class CategoryControllerTest {
     @Test
     @DisplayName("Should list all categories when making GET request to endpoint - /")
     void shouldListAllCategories() throws Exception {
-        //mockMvc.perform(MockMvcRequestBuilders.get("/addBook"))
-        //      .andExpect(MockMvcResultMatchers.status().is(200));
+
 
         List<CategoryResponse> categories = new ArrayList<>();
         CategoryResponse category1 = new CategoryResponse("AD23E5R98EFT3SL00", "Culture");
@@ -127,7 +127,7 @@ public class CategoryControllerTest {
 
 
     @Test
-    @DisplayName("Should check if the endpoint for updating category works well")
+    @DisplayName("Should check if the endpoint for updating category works fine")
     void updateCategory() throws Exception {
 
         CategoryRequest category = new CategoryRequest("Music", "Musical Books");

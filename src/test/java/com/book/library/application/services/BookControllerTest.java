@@ -61,7 +61,7 @@ public class BookControllerTest {
     ObjectMapper objectMapper;
 
     @Test
-    @DisplayName("This should check if it is a valid book")
+    @DisplayName("This checks if this endpoint adds a book")
     void addBook() throws Exception {
 
         BookRequest bookRequest = BookRequest.builder()
@@ -95,7 +95,7 @@ public class BookControllerTest {
 
 
     @Test
-    @DisplayName("This should check the endpoint for adding Favourite Books")
+    @DisplayName("This should check if the endpoint adds a Favourite Books")
     void addFavouriteBook() throws Exception {
 
         FavouriteBookRequest bookRequest = FavouriteBookRequest.builder()
@@ -186,6 +186,7 @@ public class BookControllerTest {
 
 
     @Test
+    @DisplayName("Should check if the endpoint for deleting book works fine")
     void deleteBook() throws Exception {
 
         Book book = new Book(1, "B09876", "Triumph of Faith", "Triumph of Faith");
