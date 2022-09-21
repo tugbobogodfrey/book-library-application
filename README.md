@@ -7,6 +7,9 @@ To run the code:
 After the project has been cloned on your local machine, please go to the root directory and run the following:
 
 ./mvnw test
+
+
+
 ./mvnw spring-boot:run
 
 The first command ./mvnw test runs the test. So here you can see the results of the tests written for the endpoints
