@@ -43,12 +43,7 @@ public class Book {
 
 
 
-    /*@JsonIgnore
-    @ManyToMany(mappedBy = "enrolledBooks")
-    private Set<Category> categories = new HashSet<>();*/
 
-
-    //Now this for ManyToOne
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
