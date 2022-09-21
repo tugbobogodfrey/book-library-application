@@ -32,8 +32,6 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    //@Autowired
-    //private BookService bookService;
 
 
 
@@ -58,14 +56,6 @@ public class CategoryController {
     @PutMapping(value = "/update/category/{id}")
     public ResponseEntity<CategoryResponse> editCategory(@PathVariable(value = "id") int id, @Valid @RequestBody CategoryRequest category) throws Exception{
 
-        //categoryService.updateCategory(id, category);
-       /* StandardAPIResponse response = new StandardAPIResponse(
-                "Update successful",
-                HttpStatus.CREATED,
-                ZonedDateTime.now(ZoneId.of("Z"))
-
-        );*/
-        //return new ResponseEntity<StandardAPIResponse>(categoryService.updateCategory(id, category), HttpStatus.CREATED);
         return new ResponseEntity<CategoryResponse>(categoryService.updateCategory(id, category), HttpStatus.CREATED);
     }
 
@@ -82,18 +72,7 @@ public class CategoryController {
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    /*@GetMapping(value = "/{categoryId}/books/{bookId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CategoryEntity>> addBooksToCategory(@PathVariable int categoryId, @PathVariable int bookId){
-
-        Optional<CategoryEntity> category = categoryService.findCategory(categoryId);
-        Optional<BookEntity> book = bookService.findBook(bookId);
-        category.get().getBook().add(book);
-
-
-
-        List<CategoryEntity> categories = categoryService.getCategories();
-        return new ResponseEntity<>(categories, HttpStatus.OK);
-    }*/
+   
 
     @Operation(summary = "Delete Category", description = "Delete a particular Category", tags = "Delete")
     @ApiResponses(value = {
@@ -112,22 +91,8 @@ public class CategoryController {
         return new ResponseEntity<>(standardAPIResponse, HttpStatus.OK);
     }
 
-   /* @PutMapping(value = "/update/category/{id}/addBooksToCategory")
-    public ResponseEntity<String> deleteCategory(@PathVariable(value = "id") int id, @RequestBody List<BookRequest> books) {
-        Category category = categoryService.addBooksToCategory(id, books);
-        //return new ResponseEntity<Category>(response, HttpStatus.OK);
 
-        return new ResponseEntity<>("Added", HttpStatus.CREATED);
-    }*/
-
-
-   /* @PutMapping(value = "/{categoryId}/books/{bookId}")
-    public ResponseEntity<Category> addBooks(@PathVariable(value = "categoryId") int categoryId, @PathVariable(value = "bookId") int bookId) {
-
-
-
-        return new ResponseEntity<Category>(categoryService.addBooksToCategory(categoryId, bookId), HttpStatus.CREATED);
-    }*/
+       
 
 
 
