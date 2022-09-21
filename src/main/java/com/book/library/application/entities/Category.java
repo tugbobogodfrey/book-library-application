@@ -46,28 +46,9 @@ public class Category {
     @Column(name = "description")
     private String description;
 
-    /*@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cat_id", referencedColumnName = "id")
-    private List<Book> book;*/
-
-    /*@OneToMany(targetEntity = BookEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(
-            name = "cateBook_fk",
-            referencedColumnName = "id"
-    )
-    private List<BookEntity> books;*/
-
-    // ManyToMany Relationship
-    /*@ManyToMany
-    @JoinTable(
-            name = "books_enrolled",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
-    private List<Book> enrolledBooks = new ArrayList<>();*/
+    
 
 
-    //Now this for OneToMany
     @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Book> enrolledBooks = new ArrayList<>();
