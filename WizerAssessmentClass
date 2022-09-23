@@ -1,0 +1,115 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class WizerAssessmentClass {
+
+
+    public static void main(String[] args){
+
+
+        WizerAssessmentClass wizerAssessmentClass = new WizerAssessmentClass();
+        System.out.println("Solution to No 1 problem:");
+        wizerAssessmentClass.singleParameter();
+
+        System.out.println("Soltion to No2 problem");
+        wizerAssessmentClass.arrayIntegers();
+
+        System.out.println("Solution to No3 problem");
+        wizerAssessmentClass.numTargetTask();
+
+    }
+
+    public void singleParameter(){
+
+         System.out.println("Supply the height");
+        Scanner input = new Scanner(System.in);
+        int height = input.nextInt();
+
+        if(height > 10 || height < 0){
+            System.out.println("Please supply a value between 0 and 10");
+        }else {
+
+            String assemble = "";
+            for (int i = 0; i < height; i++) {
+                assemble += "*";
+                System.out.println(assemble);
+                System.out.println();
+            }
+
+        }
+
+    }
+
+
+    public void arrayIntegers(){
+
+
+        System.out.println("Supply the array size");
+        Scanner input = new Scanner(System.in);
+        int arraySize = input.nextInt();
+        System.out.println("Supply the number of rotated positions");
+        int numberOfPositions = input.nextInt();
+
+
+        int[] arrayValues = new int[arraySize];
+        int[] rotatedArray = new int[arraySize];
+
+        for(int i = 0; i < arraySize; i++){
+            System.out.println("Supply next value");
+            arrayValues[i] = input.nextInt();
+        }
+
+        int j = 0;
+        for(int i = arrayValues.length-1; i >=0 ; i--){
+            j++;
+            rotatedArray[j-1] = arrayValues[i];
+        }
+
+
+        int k = numberOfPositions - 1;
+        int m = arraySize - numberOfPositions;
+        for(int i = 0; i < m; i++){
+            k++;
+            rotatedArray[k] = arrayValues[i];
+        }
+
+        System.out.println(Arrays.toString(arrayValues));
+        System.out.println("Final Rotated Position: "+ Arrays.toString(rotatedArray));
+
+
+
+
+
+    }
+
+
+
+
+
+
+    public void numTargetTask(){
+        System.out.println("Supply the target value");
+        Scanner input = new Scanner(System.in);
+        int target = input.nextInt();
+        System.out.println("Supply the size of array nums");
+        int numsSize = input.nextInt();
+
+        int[] nums = new int[numsSize];
+
+
+        for(int i = 0; i < numsSize; i++){
+            System.out.println("Supply nums Value: " + i);
+            nums[i] = input.nextInt();
+        }
+
+        int sum = 0;
+        for(int i = 0; i < numsSize; i++){
+            System.out.println("Supply nums Value: " + i);
+            sum = 0 + nums[i];
+        }
+
+        System.out.println(sum);
+
+
+    }
+}
